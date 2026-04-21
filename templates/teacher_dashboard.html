@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Teacher Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+/* BACKGROUND */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+}
+
+/* HEADER */
+.header {
+    background: #16a34a;
+    color: white;
+    padding: 18px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* MAIN */
+.main {
+    padding: 30px;
+}
+
+/* CARD */
+.card-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+/* FEATURE BOX */
+.feature {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* LINKS */
+a {
+    display: block;
+    text-decoration: none;
+    color: #2563eb;
+    margin-top: 8px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* LOGOUT */
+.logout {
+    display: inline-block;
+    margin-top: 20px;
+    background: #dc2626;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.logout:hover {
+    background: #b91c1c;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    👩‍🏫 Teacher Dashboard
+</div>
+
+<div class="main">
+
+    <!-- WELCOME -->
+    <div class="card-box">
+        <h4>Welcome, {{ session['user'] }} 👋</h4>
+        <p><b>Role:</b> {{ session['role'] }}</p>
+    </div>
+
+    <!-- INFO -->
+    <div class="card-box">
+        <h5>📌 Teacher Panel</h5>
+        <p>You can manage and evaluate student performance.</p>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="grid">
+
+        <div class="feature">
+            📋<br>
+            View Students
+            <a href="/view">Open</a>
+        </div>
+
+        <div class="feature">
+            ➕<br>
+            Add Student
+            <a href="/add">Open</a>
+        </div>
+
+        <div class="feature">
+            🛠️<br>
+            Manage Students
+            <a href="/manage">Open</a>
+        </div>
+
+    </div>
+
+    <!-- LOGOUT -->
+    <a href="/logout" class="logout">Logout</a>
+
+</div>
+
+</body>
+</html>

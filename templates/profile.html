@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+    background: #f4f6f9;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card-box {
+    width: 400px;
+    margin: 80px auto;
+    padding: 25px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: white;
+    background: #2563eb;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card-box">
+    <h2>👤 Student Profile</h2>
+
+    <p><b>Name:</b> {{ session['user'] }}</p>
+    <p><b>Role:</b> {{ session['role'] }}</p>
+
+    <a href="/student_dashboard" class="back">Back</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login - Student Portal</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* BACKGROUND */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    background: linear-gradient(135deg, #1e293b, #2563eb);
+}
+
+/* LEFT PANEL */
+.left {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 70px;
+}
+
+.left h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.left p {
+    margin-top: 10px;
+    opacity: 0.85;
+}
+
+/* RIGHT PANEL */
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGIN CARD */
+.login-card {
+    width: 360px;
+    padding: 35px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* TITLE */
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0f172a;
+}
+
+/* INPUT BOX */
+.input-box {
+    position: relative;
+    margin: 12px 0;
+}
+
+.input-box i {
+    position: absolute;
+    left: 12px;
+    top: 13px;
+    color: #64748b;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.input-box input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37,99,235,0.2);
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+small {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    color: #64748b;
+}
+
+/* ✅ ERROR MESSAGE */
+.error-msg {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* ✅ SUCCESS MESSAGE */
+.success-msg {
+    color: green;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- LEFT -->
+<div class="left">
+    <h1>🎓 Student Portal</h1>
+    <p>Secure login to access student management dashboard</p>
+</div>
+
+<!-- RIGHT -->
+<div class="right">
+
+    <div class="login-card">
+
+        <h2>Login</h2>
+
+        <!-- ✅ UPDATED FLASH MESSAGE DISPLAY -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              
+              {% if category == 'danger' %}
+                <div class="error-msg">{{ message }}</div>
+              {% elif category == 'success' %}
+                <div class="success-msg">{{ message }}</div>
+              {% else %}
+                <div class="text-center">{{ message }}</div>
+              {% endif %}
+
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/login">
+
+            <div class="input-box">
+                <i class="fa fa-user"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            
+            <button type="submit">Login</button>
+            
+<div class="text-center mt-2">
+    <a href="/register" style="
+        text-decoration: none;
+        font-size: 14px;
+        color: #2563eb;
+    ">
+        New user? Sign up here
+    </a>
+</div>
+
+
+        </form>
+
+        <small class="text-muted">Secure login to access your dashboard</small>
+
+    </div>
+
+</div>
+
+</body>
+</html>
