@@ -265,7 +265,7 @@ def student_marks():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT name, roll, marks 
+        SELECT name, roll,dept, marks 
         FROM students 
         WHERE name=?
     """, (session['user'],))
